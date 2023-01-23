@@ -11,7 +11,7 @@
 #
 
 # Modify default IP ＆ Delete Password
-sed -i 's/192.168.1.1/192.168.9.1/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 #sed -i '/CYXluq4wUazHjmCDBCqXF/d' $ZZZ
 
 echo '修改主机名'
