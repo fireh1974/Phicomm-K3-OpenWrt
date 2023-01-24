@@ -27,6 +27,15 @@ rm -rf ./feeds/luci/themes/luci-theme-argon
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git ./feeds/luci/themes/luci-theme-argon
 echo '=========Add argon-mod OK!========='
 
+echo '添加alist'
+rm -rf feeds/packages/lang/golang
+svn export https://github.com/sbwml/packages_lang_golang/branches/19.x feeds/packages/lang/golang
+git clone https://github.com/sbwml/luci-app-alist package/alist
+rm -rf feeds/packages/lang/node
+svn co https://github.com/openwrt/packages/trunk/lang/node feeds/packages/lang/node
+echo '=========alist OK!========='
+
+
 echo '添加lwz322的K3屏幕插件'
 rm -rf package/lean/luci-app-k3screenctrl
 git clone https://github.com/yangxu52/luci-app-k3screenctrl.git package/lean/luci-app-k3screenctrl
