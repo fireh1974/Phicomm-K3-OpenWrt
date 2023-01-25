@@ -14,6 +14,10 @@
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 #sed -i '/CYXluq4wUazHjmCDBCqXF/d' $ZZZ
 
+#sed -i 's|^TARGET_|# TARGET_|g; s|# TARGET_DEVICES += phicomm_k3|TARGET_DEVICES += phicomm_k3|' target/linux/bcm53xx/image/Makefile
+#只生成k3固件
+#phicomm_k3 的名字你对照你的源码自己修改下就好了，有phicomm_k3或者phicomm-k3
+
 echo '修改主机名'
 sed -i "s/hostname='OpenWrt'/hostname='Phicomm-K3'/g" package/base-files/files/bin/config_generate
 cat package/base-files/files/bin/config_generate |grep hostname=
