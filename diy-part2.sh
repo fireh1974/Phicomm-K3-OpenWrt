@@ -23,6 +23,16 @@ echo '移除主页跑分信息显示'
 sed -i 's/ <%=luci.sys.exec("cat \/etc\/bench.log") or ""%>//g' package/lean/autocore/files/arm/index.htm
 echo '=========Remove benchmark display in index OK!========='
 
+echo '添加alist'
+#需要 golang 1.19.x 版本（在 ./scripts/feeds install -a 操作之后更换 golang 版本）
+rm -rf feeds/packages/lang/node
+svn co https://github.com/openwrt/packages/trunk/lang/node feeds/packages/lang/node
+rm -rf feeds/packages/lang/golang
+svn export https://github.com/sbwml/packages_lang_golang/branches/19.x feeds/packages/lang/golang
+
+
+echo '=========alist OK!========='
+
 # Change Default Theme
 #rm -rf package/lean/luci-theme-argon  #删除原Argon主题
 #git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/lean/luci-theme-argon 
