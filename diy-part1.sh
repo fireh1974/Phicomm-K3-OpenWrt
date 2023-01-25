@@ -28,11 +28,9 @@ git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git ./feeds/luc
 echo '=========Add argon-mod OK!========='
 
 echo '添加alist'
-rm -rf feeds/packages/lang/golang
-svn export https://github.com/sbwml/packages_lang_golang/branches/19.x feeds/packages/lang/golang
+
 git clone https://github.com/sbwml/luci-app-alist package/alist
-rm -rf feeds/packages/lang/node
-svn co https://github.com/openwrt/packages/trunk/lang/node feeds/packages/lang/node
+
 echo '=========alist OK!========='
 
 
