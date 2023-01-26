@@ -18,6 +18,9 @@ sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generat
 #只生成k3固件
 #phicomm_k3 的名字你对照你的源码自己修改下就好了，有phicomm_k3或者phicomm-k3
 
+####### Set argon as default theme
+sed -i 's/luci-theme-bootstrap/luci-theme-argonne/g' feeds/luci/collections/luci/Makefile
+
 echo '修改主机名'
 sed -i "s/hostname='OpenWrt'/hostname='Phicomm-K3'/g" package/base-files/files/bin/config_generate
 cat package/base-files/files/bin/config_generate |grep hostname=
@@ -33,8 +36,6 @@ rm -rf feeds/packages/lang/node
 svn co https://github.com/openwrt/packages/trunk/lang/node feeds/packages/lang/node
 rm -rf feeds/packages/lang/golang
 svn export https://github.com/sbwml/packages_lang_golang/branches/19.x feeds/packages/lang/golang
-
-
 echo '=========alist OK!========='
 
 # Change Default Theme
