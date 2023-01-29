@@ -10,9 +10,9 @@
 # Description: OpenWrt DIY script part 2 (After Update feeds)
 #
 
-# Modify default IP ＆ Delete Password
+# Modify default IP 
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
-#sed -i '/CYXluq4wUazHjmCDBCqXF/d' $ZZZ
+
 
 #sed -i 's|^TARGET_|# TARGET_|g; s|# TARGET_DEVICES += phicomm_k3|TARGET_DEVICES += phicomm_k3|' target/linux/bcm53xx/image/Makefile
 #只生成k3固件
@@ -32,17 +32,12 @@ echo '=========Remove benchmark display in index OK!========='
 
 echo '添加alist'
 #需要 golang 1.19.x 版本（在 ./scripts/feeds install -a 操作之后更换 golang 版本）
-rm -rf feeds/packages/lang/node
-svn co https://github.com/openwrt/packages/trunk/lang/node feeds/packages/lang/node
+#rm -rf feeds/packages/lang/node
+#svn co https://github.com/openwrt/packages/trunk/lang/node feeds/packages/lang/node
 rm -rf feeds/packages/lang/golang
 svn export https://github.com/sbwml/packages_lang_golang/branches/19.x feeds/packages/lang/golang
 echo '=========alist OK!========='
 
-# Change Default Theme
-#rm -rf package/lean/luci-theme-argon  #删除原Argon主题
-#git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/lean/luci-theme-argon 
-#rm -rf ./feeds/luci/themes/luci-theme-argon
-#git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git ./feeds/luci/themes/luci-theme-argon
 # Add Screenctrl
 #rm -rf package/lean/k3screenctrl
 #rm -rf package/lean/luci-app-k3screenctrl
